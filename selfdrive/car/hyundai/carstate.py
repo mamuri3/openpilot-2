@@ -136,8 +136,8 @@ class CarState(CarStateBase):
 
     # most HKG cars has no long control, it is safer and easier to engage by main on
 
-    if ret.cruiseState.enabled:
-    #if self.acc_active:
+    #if ret.cruiseState.enabled:
+    if self.acc_active:
       speed_conv = CV.MPH_TO_MS if self.is_set_speed_in_mph else CV.KPH_TO_MS
       ret.cruiseState.speed = cp_scc.vl["SCC11"]['VSetDis'] * speed_conv if not self.no_radar else \
                                          cp.vl["LVR12"]["CF_Lvr_CruiseSet"] * speed_conv
