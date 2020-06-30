@@ -121,7 +121,6 @@ class CarState(CarStateBase):
 
     ret.steerWarning = steerWarning
 
-
     # cruise state
     #ret.cruiseState.available = True
     #ret.cruiseState.enabled = cp.vl["SCC12"]['ACCMode'] != 0
@@ -144,6 +143,7 @@ class CarState(CarStateBase):
       #ret.cruiseState.speed = self.VSetDis * speed_conv
     else:
       ret.cruiseState.speed = 0
+
     self.cruise_main_button = cp.vl["CLU11"]["CF_Clu_CruiseSwMain"]
     self.cruise_buttons = cp.vl["CLU11"]["CF_Clu_CruiseSwState"]
 
