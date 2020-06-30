@@ -224,7 +224,6 @@ class CarState(CarStateBase):
     #if not self.lkas_error:
     #  self.lkas_button_on = self.Lkas_LdwsSysState 
 
-
     # save the entire LKAS11 and CLU11
     self.lkas11 = cp_cam.vl["LKAS11"]
     self.clu11 = cp.vl["CLU11"]
