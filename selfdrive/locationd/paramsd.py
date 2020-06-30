@@ -71,11 +71,12 @@ class ParamsLearner:
 
 
 def main(sm=None, pm=None):
+  print('error => paramsd.py  1 ')
   if sm is None:
     sm = messaging.SubMaster(['liveLocationKalman', 'carState'])
   if pm is None:
     pm = messaging.PubMaster(['liveParameters'])
-
+  print('error => paramsd.py  2 ')
   params_reader = Params()
   # wait for stats about the car to come in from controls
   cloudlog.info("paramsd is waiting for CarParams")
@@ -83,7 +84,7 @@ def main(sm=None, pm=None):
   cloudlog.info("paramsd got CarParams")
 
   params = params_reader.get("LiveParameters")
-
+  print('error => paramsd.py  3 ')
   # Check if car model matches
   if params is not None:
     params = json.loads(params)
@@ -102,7 +103,7 @@ def main(sm=None, pm=None):
 
   learner = ParamsLearner(CP, params['steerRatio'], params['stiffnessFactor'], math.radians(params['angleOffsetAverage']))
   min_sr, max_sr = 0.5 * CP.steerRatio, 2.0 * CP.steerRatio
-
+  print('error => paramsd.py  4 ')
   i = 0
   while True:
     sm.update()
